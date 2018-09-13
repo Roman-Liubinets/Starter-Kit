@@ -1,55 +1,60 @@
 <div class="container_registration">
   <div class="registration_container">
-    <div class="row">
-      <div class="col-12">
-        <div class="registration_header">
-          <h2>Registration</h2>
+    <form [formGroup]="form" (ngSubmit)="onRegister()">
+      <div class="row">
+        <div class="col-12">
+          <div class="registration_header">
+            <h2>Registration</h2>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="login_box">
-          <div class="form-group">
-            <div class="label">
-              <label for="">Email:</label>
+      <div class="row">
+        <div class="col-12">
+          <div class="login_box">
+            <div class="form-group">
+              <div class="label">
+                <label for="">Email:</label>
+              </div>
+              <input type="text" class="form-control" placeholder="enter email..." formControlName="email" required
+                [ngClass]="{'has-error':form.get('email').invalid && form.get('email').touched}">
             </div>
-            <input type="text" class="form-control">
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="password_box">
-          <div class="label">
-            <label for="">Password:</label>
-          </div>
-          <input type="text" class="form-control">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="name_box">
-          <div class="label">
-            <label for="">Name:</label>
-          </div>
-          <input type="text" class="form-control">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="btns">
-          <div class="register_box">
-            <button class="btn btn-success">Register</button>
-          </div>
-          <div class="back_box">
-            <button class="btn btn-danger">Back to Login</button>
+      <div class="row">
+        <div class="col-12">
+          <div class="password_box">
+            <div class="label">
+              <label for="">Password:</label>
+            </div>
+            <input type="text" class="form-control" placeholder="enter password..." formControlName="password" required
+              [ngClass]="{'has-error':form.get('password').invalid && form.get('password').touched}">
           </div>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="name_box">
+            <div class="label">
+              <label for="">Name:</label>
+            </div>
+            <input type="text" class="form-control" placeholder="enter name..." formControlName="name" required
+              [ngClass]="{'has-error':form.get('name').invalid && form.get('name').touched}">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="btns">
+            <div class="register_box">
+              <button class="btn btn-success">Register</button>
+            </div>
+            <div class="back_box">
+              <button class="btn btn-danger" [routerLink]="'/login'">Back to Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
