@@ -1,45 +1,47 @@
 <div class="container_login">
   <div class="login_container">
-    <div class="row">
-      <div class="col-12">
-        <div class="login_header">
-          <h2>Login</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="login_box">
-          <div class="form-group">
-            <div class="label">
-              <label for="">Email:</label></div>
-            <input type="text" class="form-control">
+    <form [formGroup]="form" (ngSubmit)="onLogin()">
+      <div class="row">
+        <div class="col-12">
+          <div class="login_header">
+            <h2>Login</h2>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="password_box">
-          <div class="form-group">
-            <div class="label">
-              <label for="">Password:</label></div>
-            <input type="text" class="form-control">
+      <div class="row">
+        <div class="col-12">
+          <div class="login_box">
+            <div class="form-group">
+              <div class="label">
+                <label for="">Email:</label></div>
+              <input type="text" class="form-control" placeholder="enter email..." formControlName="email">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="btns">
-          <div class="register_box">
-            <button class="btn btn-primary">Register</button>
-          </div>
-          <div class="enter_box">
-            <button class="btn btn-success">Enter</button>
+      <div class="row">
+        <div class="col-12">
+          <div class="password_box">
+            <div class="form-group">
+              <div class="label">
+                <label for="">Password:</label></div>
+              <input type="text" class="form-control" placeholder="enter password..." formControlName="password">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="btns">
+            <div class="register_box">
+              <button class="btn btn-primary" [routerLink]="'/registration'">Register</button>
+            </div>
+            <div class="enter_box">
+              <button type="submit" class="btn btn-success">Enter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
