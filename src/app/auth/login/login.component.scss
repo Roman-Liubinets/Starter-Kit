@@ -86,3 +86,15 @@ input:focus {
 .enter_box {
   display: block;
 }
+
+.btn {
+  background-color: #c2d1ff;
+  color: white;
+}
+
+.has-error {
+  border: 1.5px solid red;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
