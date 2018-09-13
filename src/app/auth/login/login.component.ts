@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router, ActivatedRoute, Params } from "@angular/router";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: "app-login",
@@ -8,14 +9,25 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) {}
 
   form: FormGroup;
 
-
   onLogin() {
-    const formData = this.form.value;
-    console.log('TCL: LoginComponent -> onLogin -> formData', formData);
+    if (this.form.invalid) {
+      this.form.get("email").markAsTouched();
+      this.form.get("password").markAsTouched();
+    } else {
+      const formData = this.form.value;
+      this.authService.login(formData.email).subscribe((result: any) => {
+      console.log('TCL: LoginComponent -> onLogin -> result', result);
+
+      });
+    }
   }
 
   ngOnInit() {

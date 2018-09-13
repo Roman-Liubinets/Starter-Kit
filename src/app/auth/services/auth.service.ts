@@ -10,4 +10,8 @@ export class AuthService {
       return this.http.post('http://localhost:8081/api/user', user);
     }
 
+    login(email) {
+      return this.http.get(`http://localhost:8081/api/user-email/${email}`);
+    }
+
 }
