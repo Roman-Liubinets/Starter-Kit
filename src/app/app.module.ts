@@ -5,10 +5,12 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
 import { AuthService } from "./auth/services/auth.service";
+// import { SystemComponent } from './system/system.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // SystemComponent
     // AuthComponent
   ],
   imports: [

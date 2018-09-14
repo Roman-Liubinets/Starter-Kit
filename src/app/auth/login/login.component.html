@@ -15,7 +15,7 @@
             <div class="form-group">
               <div class="label">
                 <label for="">Email:</label></div>
-              <input type="text" placeholder="enter email..." formControlName="email" required [ngClass]="{'has-error':form.get('email').invalid && form.get('email').touched}">
+              <input type="text" placeholder="Email" formControlName="email" required [ngClass]="{'has-error':form.get('email').invalid && form.get('email').touched}">
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="form-group">
               <div class="label">
                 <label for="">Password:</label></div>
-              <input type="text" placeholder="enter password..." formControlName="password" required [ngClass]="{'has-error':form.get('password').invalid && form.get('password').touched}">
+              <input type="password" placeholder="*******" formControlName="password" required [ngClass]="{'has-error':form.get('password').invalid && form.get('password').touched}">
             </div>
           </div>
         </div>
