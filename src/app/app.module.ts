@@ -1,13 +1,14 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpModule } from "@angular/http";
-import { MatDialogModule } from "@angular/material";
+import { MatDialogModule } from "@angular/material/dialog";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
 import { AuthService } from "./auth/services/auth.service";
 import { BooksService } from "./system/first-page/services/books.service";
-// import { SystemComponent } from './system/system.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BooksService } from "./system/first-page/services/books.service";
     AppRoutingModule,
     AuthModule,
     HttpModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule,
     // MaterialModule
   ],
   providers: [AuthService, BooksService],

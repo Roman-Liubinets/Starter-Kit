@@ -7,6 +7,7 @@ import { FirstPageComponent } from "./first-page/first-page.component";
 import { SystemRoutingModule } from "./system.routing";
 import { HeaderComponent } from "./components/header/header.component";
 import { BooksBoxComponent } from "./first-page/components/books-box/books-box.component";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { BooksBoxComponent } from "./first-page/components/books-box/books-box.c
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SystemRoutingModule
+    SystemRoutingModule,
+    MatDialogModule
   ],
   declarations: [
     SystemComponent,
