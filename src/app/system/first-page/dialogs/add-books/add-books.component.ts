@@ -17,6 +17,7 @@ export class AddBooksComponent implements OnInit {
   ) {}
 
   book: Books = {
+    id: "",
     Title: "",
     Author: "",
     Description: ""
@@ -34,5 +35,7 @@ export class AddBooksComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // console.log(this.data);
+  }
 }

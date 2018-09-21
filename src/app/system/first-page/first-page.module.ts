@@ -6,6 +6,7 @@ import { NgbModule, NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
 import { MaterialModule } from "../../material.module";
 import { BooksBoxComponent } from "./components/books-box/books-box.component";
 import { AddBooksComponent } from "./dialogs/add-books/add-books.component";
+import { DeleteBooksComponent } from './dialogs/delete-books/delete-books.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { AddBooksComponent } from "./dialogs/add-books/add-books.component";
     NgbPaginationModule,
     MaterialModule
   ],
-  declarations: [BooksBoxComponent, AddBooksComponent],
+  declarations: [BooksBoxComponent, AddBooksComponent, DeleteBooksComponent],
   // entryComponents: [AddBooksComponent]
 })
 export class FirstPageModule {}
