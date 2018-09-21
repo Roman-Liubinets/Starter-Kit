@@ -1,22 +1,29 @@
-<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element._id}} </td>
-  </ng-container>
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> email </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-  <ng-container matColumnDef="password">
-    <th mat-header-cell *matHeaderCellDef> Password </th>
-    <td mat-cell *matCellDef="let element"> {{element.password}} </td>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="toggleSelect(row)" [ngClass]="{'selected': row.selected}">
-  </tr>
-</table> -->
+<div class="books_container">
+  <!-- <div class="book">
+    <div class="book_image">
+      <img src="../../../../../../../1.jpeg" alt="">
+    </div>
+    <div class="book_content">
+      <h3>Title</h3>
+      <p>Content</p>
+    </div>
+  </div> -->
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th class="th_actions">Actions</th>
+    </tr>
+    <tr *ngFor="let book of bookService.books">
+      <td>{{book.Title}}</td>
+      <td>{{book.Author}}</td>
+      <td class="description">{{book.Description}}</td>
+      <td class="td_buttons">
+        <div class="action_buttons">
+          <button class="btn btn-success">Edit</button>
+          <button class="btn btn-danger">Delete</button></div>
+      </td>
+    </tr>
+  </table>
+</div>

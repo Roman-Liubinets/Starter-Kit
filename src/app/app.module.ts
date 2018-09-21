@@ -1,7 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
+
 import { NgModule } from "@angular/core";
 import { HttpModule } from "@angular/http";
-import { MatDialogModule } from "@angular/material/dialog";
+// import { MatDialogModule } from "@angular/material/dialog";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
@@ -23,9 +24,10 @@ import { BooksService } from "./system/first-page/services/books.service";
     AppRoutingModule,
     AuthModule,
     HttpModule,
-    MatDialogModule,
+    // MatDialogModule,
     BrowserAnimationsModule,
     // MaterialModule
+    NgbModule.forRoot()
   ],
   providers: [AuthService, BooksService],
   bootstrap: [AppComponent]

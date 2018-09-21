@@ -9,6 +9,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { BooksBoxComponent } from "./first-page/components/books-box/books-box.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { AddBooksComponent } from "./first-page/dialogs/add-books/add-books.component";
+import { MaterialModule } from "../material.module";
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { AddBooksComponent } from "./first-page/dialogs/add-books/add-books.comp
     ReactiveFormsModule,
     HttpClientModule,
     SystemRoutingModule,
-    MatDialogModule
+    MaterialModule
   ],
   declarations: [
     SystemComponent,

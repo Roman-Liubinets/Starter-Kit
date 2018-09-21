@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgbModule, NgbPaginationModule } from "@ng-bootstrap/ng-bootstrap";
-import { MatDialogModule } from "@angular/material";
+import { MaterialModule } from "../../material.module";
 import { BooksBoxComponent } from "./components/books-box/books-box.component";
 import { AddBooksComponent } from "./dialogs/add-books/add-books.component";
 
@@ -15,8 +15,9 @@ import { AddBooksComponent } from "./dialogs/add-books/add-books.component";
     HttpClientModule,
     NgbModule,
     NgbPaginationModule,
-    MatDialogModule
+    MaterialModule
   ],
-  declarations: [BooksBoxComponent, AddBooksComponent]
+  declarations: [BooksBoxComponent, AddBooksComponent],
+  // entryComponents: [AddBooksComponent]
 })
 export class FirstPageModule {}
