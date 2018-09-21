@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { AddDialogComponent } from "../dialogs/add-dialog/add-dialog.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { AddBooksComponent } from "./dialogs/add-books/add-books.component";
 
 @Component({
   selector: "app-first-page",
@@ -12,7 +12,7 @@ export class FirstPageComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   addBooks() {
-    const dialogRef = this.dialog.open(AddDialogComponent, {});
+    const dialogRef = this.dialog.open(AddBooksComponent, {});
   }
 
   ngOnInit() {}

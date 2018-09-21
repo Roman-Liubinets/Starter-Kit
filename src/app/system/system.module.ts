@@ -8,6 +8,7 @@ import { SystemRoutingModule } from "./system.routing";
 import { HeaderComponent } from "./components/header/header.component";
 import { BooksBoxComponent } from "./first-page/components/books-box/books-box.component";
 import { MatDialogModule } from "@angular/material/dialog";
+import { AddBooksComponent } from "./first-page/dialogs/add-books/add-books.component";
 
 @NgModule({
   imports: [
@@ -22,7 +23,9 @@ import { MatDialogModule } from "@angular/material/dialog";
     SystemComponent,
     FirstPageComponent,
     HeaderComponent,
-    BooksBoxComponent
-  ]
+    BooksBoxComponent,
+    AddBooksComponent
+  ],
+  entryComponents: [AddBooksComponent]
 })
 export class SystemModule {}
