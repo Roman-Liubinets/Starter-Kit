@@ -1,0 +1,16 @@
+.book_title,
+.book_author {
+  width: 100%;
+
+  label {
+    width: 55px;
+  }
+}
+
+.mat-dialog-actions {
+  justify-content: space-between;
+
+  button {
+    width: 45%;
+  }
+}

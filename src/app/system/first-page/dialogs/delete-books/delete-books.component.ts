@@ -15,7 +15,13 @@ export class DeleteBooksComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  ngOnInit() {
-    console.log(this.data);
+  deleteBook() {
+    return this.bookService
+      .deleteBook(this.data._id)
+      .subscribe((result: any) => {
+        this.dialogRef.close();
+      });
   }
+
+  ngOnInit() {}
 }

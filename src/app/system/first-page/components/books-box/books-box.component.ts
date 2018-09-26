@@ -5,6 +5,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { BooksService } from "../../services/books.service";
 import { Books } from "../../models/books.model";
 import { DeleteBooksComponent } from "../../dialogs/delete-books/delete-books.component";
+import { EditeBookComponent } from "../../dialogs/edite-book/edite-book.component";
 
 @Component({
   selector: "app-books-box",
@@ -16,15 +17,11 @@ export class BooksBoxComponent implements OnInit {
 
   getBooks() {
     return this.bookService.getBooks().subscribe((books: any) => {
-      books.forEach(book => {
-        this.bookService.books.push({
-          id: book.id,
-          Title: book.Title,
-          Author: book.Author,
-          Description: book.Description
-        });
-      });
-      // console.log("this.books", this.books);
+      this.bookService.books = books;
+      console.log(
+        "TCL: BooksBoxComponent -> getBooks -> this.bookService.books",
+        this.bookService.books
+      );
     });
   }
 
@@ -32,6 +29,18 @@ export class BooksBoxComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteBooksComponent, {
       data: book
     });
+    dialogRef.afterClosed().subscribe((result: any) => {
+      this.bookService.getBooks().subscribe((books: any) => {
+        this.bookService.books = books;
+      });
+    });
+  }
+
+  openEditDialog(book) {
+    const dialogRef = this.dialog.open(EditeBookComponent, {
+      data: book
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {});
   }
 
   ngOnInit() {

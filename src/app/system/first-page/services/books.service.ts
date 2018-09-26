@@ -5,7 +5,6 @@ import { HttpClient } from "@angular/common/http";
 export class BooksService {
   constructor(private http: HttpClient) {}
 
-
   books = [];
 
   login(email) {
@@ -14,6 +13,14 @@ export class BooksService {
 
   addBook(book) {
     return this.http.post(`http://localhost:8081/api/book`, book);
+  }
+
+  deleteBook(id) {
+    return this.http.delete(`http://localhost:8081/api/delete/${id}`);
+  }
+
+  editeBook(book) {
+    return this.http.put(`http://localhost:8081/api/editBook`, book);
   }
 
   getBooks() {

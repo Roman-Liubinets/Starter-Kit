@@ -11,6 +11,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { AddBooksComponent } from "./first-page/dialogs/add-books/add-books.component";
 import { MaterialModule } from "../material.module";
 import { DeleteBooksComponent } from "./first-page/dialogs/delete-books/delete-books.component";
+import { EditeBookComponent } from "./first-page/dialogs/edite-book/edite-book.component";
 
 @NgModule({
   imports: [
@@ -27,8 +28,9 @@ import { DeleteBooksComponent } from "./first-page/dialogs/delete-books/delete-b
     HeaderComponent,
     BooksBoxComponent,
     AddBooksComponent,
-    DeleteBooksComponent
+    DeleteBooksComponent,
+    EditeBookComponent
   ],
-  entryComponents: [AddBooksComponent, DeleteBooksComponent]
+  entryComponents: [AddBooksComponent, DeleteBooksComponent, EditeBookComponent]
 })
 export class SystemModule {}

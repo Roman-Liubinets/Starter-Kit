@@ -7,6 +7,7 @@ import { MaterialModule } from "../../material.module";
 import { BooksBoxComponent } from "./components/books-box/books-box.component";
 import { AddBooksComponent } from "./dialogs/add-books/add-books.component";
 import { DeleteBooksComponent } from './dialogs/delete-books/delete-books.component';
+import { EditeBookComponent } from './dialogs/edite-book/edite-book.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { DeleteBooksComponent } from './dialogs/delete-books/delete-books.compon
     NgbPaginationModule,
     MaterialModule
   ],
-  declarations: [BooksBoxComponent, AddBooksComponent, DeleteBooksComponent],
+  declarations: [BooksBoxComponent, AddBooksComponent, DeleteBooksComponent, EditeBookComponent],
   // entryComponents: [AddBooksComponent]
 })
 export class FirstPageModule {}

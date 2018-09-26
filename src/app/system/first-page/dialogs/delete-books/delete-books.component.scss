@@ -1,0 +1,15 @@
+.delete_container {
+  .buttons {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
+    button {
+      width: 47.5%;
+    }
+
+    button:nth-child(2) {
+      float: right;
+    }
+  }
+}

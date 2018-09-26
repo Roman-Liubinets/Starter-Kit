@@ -16,11 +16,12 @@ export class FirstPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddBooksComponent, {});
     dialogRef.afterClosed().subscribe(() => {
       this.bookService.getBooks().subscribe((books: any) => {
-        this.bookService.books.push({
-          Title: books.Title,
-          Author: books.Author,
-          Description: books.Description
-        });
+        // this.bookService.books.push({
+        //   Title: books.Title,
+        //   Author: books.Author,
+        //   Description: books.Description
+        // });
+        this.bookService.books = books;
       });
     });
   }

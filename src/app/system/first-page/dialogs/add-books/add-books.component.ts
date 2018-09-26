@@ -16,8 +16,7 @@ export class AddBooksComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  book: Books = {
-    id: "",
+  book = {
     Title: "",
     Author: "",
     Description: ""
