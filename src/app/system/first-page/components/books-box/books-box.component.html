@@ -1,0 +1,29 @@
+<div class="books_container">
+  <!-- <div class="book">
+    <div class="book_image">
+      <img src="../../../../../../../1.jpeg" alt="">
+    </div>
+    <div class="book_content">
+      <h3>Title</h3>
+      <p>Content</p>
+    </div>
+  </div> -->
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th class="th_actions">Actions</th>
+    </tr>
+    <tr *ngFor="let book of bookService.books">
+      <td>{{book.Title}}</td>
+      <td>{{book.Author}}</td>
+      <td class="description">{{book.Description}}</td>
+      <td class="td_buttons">
+        <div class="action_buttons">
+          <button class="btn btn-success" (click)="openEditDialog(book)">Edit</button>
+          <button class="btn btn-danger" (click)="openRemoveDialog(book)">Delete</button></div>
+      </td>
+    </tr>
+  </table>
+</div>
