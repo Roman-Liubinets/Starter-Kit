@@ -12,6 +12,7 @@ import { AddBooksComponent } from "./first-page/dialogs/add-books/add-books.comp
 import { MaterialModule } from "../material.module";
 import { DeleteBooksComponent } from "./first-page/dialogs/delete-books/delete-books.component";
 import { EditeBookComponent } from "./first-page/dialogs/edite-book/edite-book.component";
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { EditeBookComponent } from "./first-page/dialogs/edite-book/edite-book.c
     BooksBoxComponent,
     AddBooksComponent,
     DeleteBooksComponent,
-    EditeBookComponent
+    EditeBookComponent,
+    AboutComponent
   ],
   entryComponents: [AddBooksComponent, DeleteBooksComponent, EditeBookComponent]
 })

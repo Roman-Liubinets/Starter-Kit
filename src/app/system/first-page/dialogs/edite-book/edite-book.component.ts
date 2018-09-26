@@ -22,17 +22,20 @@ export class EditeBookComponent implements OnInit {
   };
 
   editeBook(title, author, description) {
-    console.log("editeBook", title, author, description);
     const updatedBook = {
       _id: this.data._id,
       Title: title,
       Author: author,
       Description: description
     };
-    console.log("updatedBook", updatedBook);
     this.bookService.editeBook(updatedBook).subscribe((result: any) => {
-      console.log("result", result);
+      this.dialogRef.close();
     });
+  }
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   ngOnInit() {

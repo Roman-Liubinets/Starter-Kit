@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(formData.email).subscribe((result: any) => {
         console.log("TCL: LoginComponent -> onLogin -> result", result);
         // this.router.navigate[]
-        this.router.navigate(["/system", "first"]);
+        this.router.navigate(["/system", "books"]);
       });
     }
   }

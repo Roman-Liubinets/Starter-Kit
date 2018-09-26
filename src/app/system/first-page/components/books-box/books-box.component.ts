@@ -40,7 +40,11 @@ export class BooksBoxComponent implements OnInit {
     const dialogRef = this.dialog.open(EditeBookComponent, {
       data: book
     });
-    dialogRef.afterClosed().subscribe((result: any) => {});
+    dialogRef.afterClosed().subscribe((result: any) => {
+      this.bookService.getBooks().subscribe((books: any) => {
+        this.bookService.books = books;
+      });
+    });
   }
 
   ngOnInit() {
