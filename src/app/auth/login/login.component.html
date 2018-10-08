@@ -16,6 +16,10 @@
               <div class="label">
                 <label for="">Email:</label></div>
               <input type="text" placeholder="Email" formControlName="email" required [ngClass]="{'has-error':form.get('email').invalid && form.get('email').touched}">
+              <span class="form_help_text" *ngIf="form.get('email').invalid && form.get('email').touched">
+                <span *ngIf="form.get('email')['errors']['required']">Email can not be empty.</span>
+                <span *ngIf="form.get('email')['errors']['email']">Enter the correct email.</span>
+              </span>
             </div>
           </div>
         </div>
@@ -27,6 +31,9 @@
               <div class="label">
                 <label for="">Password:</label></div>
               <input type="password" placeholder="*******" formControlName="password" required [ngClass]="{'has-error':form.get('password').invalid && form.get('password').touched}">
+              <span class="form_help_text" *ngIf="form.get('password').touched">
+                <span *ngIf="form.get('email')['errors']['required']">Password can not be empty.</span>
+              </span>
             </div>
           </div>
         </div>
@@ -35,7 +42,7 @@
         <div class="col-12">
           <div class="btns">
             <div class="enter_box">
-              <button type="submit" class="btn">Enter</button>
+              <button [disabled]="form.invalid" type="submit" class="btn">Enter</button>
             </div>
             <div class="register_box">
               <!-- <button class="btn btn-primary" [routerLink]="'/registration'">Register</button> -->

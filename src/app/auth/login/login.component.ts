@@ -24,8 +24,6 @@ export class LoginComponent implements OnInit {
     } else {
       const formData = this.form.value;
       this.authService.login(formData.email).subscribe((result: any) => {
-        console.log("TCL: LoginComponent -> onLogin -> result", result);
-        // this.router.navigate[]
         this.router.navigate(["/system", "books"]);
       });
     }
@@ -36,7 +34,7 @@ export class LoginComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
         Validators.required,
-        Validators.minLength(1)
+        // Validators.minLength(1)
       ])
     });
   }
