@@ -10,6 +10,8 @@ import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
 import { AuthService } from "./auth/services/auth.service";
 import { BooksService } from "./system/first-page/services/books.service";
+import { UserSevice } from "./auth/services/user.service";
+import { AuthGuard } from "./auth/services/auth.guard";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { BooksService } from "./system/first-page/services/books.service";
     // MaterialModule
     NgbModule.forRoot()
   ],
-  providers: [AuthService, BooksService],
+  providers: [AuthService, BooksService, UserSevice, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
