@@ -9,8 +9,7 @@ import { fadeStateTrigger } from "../shared/animations/fade.animation";
   animations: [fadeStateTrigger]
 })
 export class AuthComponent implements OnInit {
-  @HostBinding("@fade")
-  a = true;
+  @HostBinding("@fade") a = true;
 
   constructor(private router: Router) {}
 
