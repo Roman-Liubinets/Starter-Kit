@@ -2,11 +2,48 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { AuthService } from "../services/auth.service";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from "@angular/animations";
 
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
-  styleUrls: ["./registration.component.scss"]
+  styleUrls: ["./registration.component.scss"],
+  animations: [
+    trigger("handleTransition", [
+      state(
+        "void",
+        style({
+          position: "fixed",
+          top: "5%",
+          left: "-150%",
+          width: "100%",
+          opacity: 0
+        })
+      ),
+      state("*", style({ position: "fixed", top: "5%", width: "100%" })),
+      transition(
+        ":enter",
+        animate(
+          "1s ease-out",
+          style({ transform: "translateX(150%)", opacity: 1 })
+        )
+      ),
+      transition(
+        ":leave",
+        animate(
+          "1s ease-out",
+          style({ transform: "translateX(150%)", opacity: 0 })
+        )
+      )
+    ])
+  ],
+  host: { "[@handleTransition]": "" }
 })
 export class RegistrationComponent implements OnInit {
   constructor(

@@ -10,6 +10,8 @@ import {
   animate,
   keyframes
 } from "@angular/animations";
+import { Message } from "../models/message.models";
+import { UserSevice } from "../services/user.service";
 
 @Component({
   selector: "app-login",
@@ -67,11 +69,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private userSevice: UserSevice
   ) {}
 
   form: FormGroup;
   loginScreenAnimations: string = "unchecked";
+  message: Message;
 
   onLogin() {
     if (this.form.invalid) {
@@ -82,12 +86,19 @@ export class LoginComponent implements OnInit {
       this.authService.login(formData.email).subscribe((user: any) => {
         if (user.email === formData.email) {
           if (user.password === formData.password) {
+            this.message.text = "";
             window.localStorage.setItem("user", JSON.stringify(user));
-            // this.loginScreenAnimation = "completed";
+            this.userSevice.login();
             this.router.navigate(["/system", "books"]);
+          } else {
+            this.loginScreenAnimations = "invalid";
+            this.showMessage({ text: "Password is incorrect", type: "danger" });
           }
         } else {
-          // this.loginScreenAnimations = "invalid";
+          this.showMessage({
+            text: "This user does not exist!",
+            type: "danger"
+          });
         }
         // console.log("TCL: LoginComponent -> onLogin -> result", user);
       });
@@ -100,7 +111,28 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  private showMessage(message) {
+    this.message = message;
+
+    window.setTimeout(() => {
+      this.message.text = "";
+    }, 5000);
+  }
+
   ngOnInit() {
+    this.message = new Message("danger", "");
+
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params["nowCanlogin"]) {
+        this.showMessage({ text: "Now you can login", type: "success" });
+      } else if (params["accessDenied"]) {
+        this.showMessage({
+          text: "For working with system you need to login",
+          type: "warning"
+        });
+      }
+    });
+
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
