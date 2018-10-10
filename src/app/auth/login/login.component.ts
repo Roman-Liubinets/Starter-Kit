@@ -83,22 +83,30 @@ export class LoginComponent implements OnInit {
       this.form.get("password").markAsTouched();
     } else {
       const formData = this.form.value;
+      console.log("formData", formData);
       this.authService.login(formData.email).subscribe((user: any) => {
-        if (user.email === formData.email) {
-          if (user.password === formData.password) {
-            this.message.text = "";
-            window.localStorage.setItem("user", JSON.stringify(user));
-            this.userSevice.login();
-            this.router.navigate(["/system", "books"]);
-          } else {
-            this.loginScreenAnimations = "invalid";
-            this.showMessage({ text: "Password is incorrect", type: "danger" });
-          }
-        } else {
+        // console.log("user", user);
+        if (user === null) {
           this.showMessage({
             text: "This user does not exist!",
             type: "danger"
           });
+          this.loginScreenAnimations = "invalid";
+        } else {
+          if (user.email === formData.email) {
+            if (user.password === formData.password) {
+              this.message.text = "";
+              window.localStorage.setItem("user", JSON.stringify(user));
+              this.userSevice.login();
+              this.router.navigate(["/system", "books"]);
+            } else {
+              this.loginScreenAnimations = "invalid";
+              this.showMessage({
+                text: "Password is incorrect",
+                type: "danger"
+              });
+            }
+          }
         }
         // console.log("TCL: LoginComponent -> onLogin -> result", user);
       });
