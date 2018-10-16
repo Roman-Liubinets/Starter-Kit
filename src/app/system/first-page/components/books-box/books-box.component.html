@@ -8,6 +8,7 @@
       <p>Content</p>
     </div>
   </div> -->
+  <button (click)="deleteElement()">test</button>
   <table>
     <tr>
       <th>Title</th>
@@ -16,14 +17,16 @@
       <th class="th_actions">Actions</th>
     </tr>
     <tr *ngFor="let book of bookService.books">
-      <td>{{book.Title}}</td>
-      <td>{{book.Author}}</td>
-      <td class="description">{{book.Description}}</td>
-      <td class="td_buttons">
-        <div class="action_buttons">
-          <button class="btn btn-success" (click)="openEditDialog(book)">Edit</button>
-          <button class="btn btn-danger" (click)="openRemoveDialog(book)">Delete</button></div>
-      </td>
+      <div *ngIf="showElement" [@deleteAnimation]>
+        <td>{{book.Title}}</td>
+        <td>{{book.Author}}</td>
+        <td class="description">{{book.Description}}</td>
+        <td class="td_buttons">
+          <div class="action_buttons">
+            <button class="btn btn-success" (click)="openEditDialog(book)">Edit</button>
+            <button class="btn btn-danger" (click)="openRemoveDialog(book)">Delete</button></div>
+        </td>
+      </div>
     </tr>
   </table>
 </div>
