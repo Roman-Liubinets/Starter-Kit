@@ -26,7 +26,7 @@ import {
       // ]),
       transition("* => void", [
         animate(
-          "1s",
+          "0.4s",
           style({
             transform: "translateX(100%)"
           })
@@ -39,6 +39,7 @@ export class BooksBoxComponent implements OnInit {
   constructor(public bookService: BooksService, public dialog: MatDialog) {}
 
   showElement: boolean = true;
+  state = "*";
 
   getBooks() {
     return this.bookService.getBooks().subscribe((books: any) => {
@@ -50,31 +51,38 @@ export class BooksBoxComponent implements OnInit {
     });
   }
 
-  openRemoveDialog(book) {
-    const dialogRef = this.dialog.open(DeleteBooksComponent, {
-      data: book
-    });
-    dialogRef.afterClosed().subscribe((result: any) => {
-      this.bookService.getBooks().subscribe((books: any) => {
-        this.bookService.books = books;
-      });
-    });
-  }
+  // openRemoveDialog(book) {
+  //   const dialogRef = this.dialog.open(DeleteBooksComponent, {
+  //     data: book
+  //   });
+  //   dialogRef.afterClosed().subscribe((result: any) => {
+  //     this.bookService.getBooks().subscribe((books: any) => {
+  //       this.bookService.books = books;
+  //     });
+  //   });
+  // }
 
   openEditDialog(book) {
     const dialogRef = this.dialog.open(EditeBookComponent, {
       data: book
     });
     dialogRef.afterClosed().subscribe((result: any) => {
-      this.showElement = this.showElement ? false : true;
+      // this.showElement = this.showElement ? false : true;
       this.bookService.getBooks().subscribe((books: any) => {
         this.bookService.books = books;
       });
     });
   }
 
-  deleteElement() {
+  deleteElement(book) {
     this.showElement = this.showElement ? false : true;
+    window.setTimeout(() => {
+      this.bookService.deleteBook(book._id).subscribe(() => {
+        this.bookService.getBooks().subscribe((books: any) => {
+          this.bookService.books = books;
+        });
+      });
+    }, 700);
     console.log("this.showElement", this.showElement);
   }
 

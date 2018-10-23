@@ -8,8 +8,8 @@
       <p>Content</p>
     </div>
   </div> -->
-  <button (click)="deleteElement()">test</button>
-  <table>
+  <!-- <button (click)="deleteElement()">test</button> -->
+  <!-- <table>
     <tr>
       <th>Title</th>
       <th>Author</th>
@@ -24,9 +24,31 @@
         <td class="td_buttons">
           <div class="action_buttons">
             <button class="btn btn-success" (click)="openEditDialog(book)">Edit</button>
-            <button class="btn btn-danger" (click)="openRemoveDialog(book)">Delete</button></div>
+            <button class="btn btn-danger" (click)="openRemoveDialog(book)">Delete</button>
+            <button class="btn btn-danger" (click)="deleteElement(book)">Delete</button>
+          </div>
         </td>
       </div>
-    </tr>
-  </table>
+    </tr> -->
+  <!-- </table> -->
+  <!-- <button (click)="deleteElement()">test</button> -->
+  <div class="table">
+    <div class="table_row table_header">
+      <p>Title</p>
+      <p>Author</p>
+      <p>Description</p>
+      <p>Actions</p>
+    </div>
+    <div class="animation_row" *ngIf="showElement" [@deleteAnimation]>
+      <div class="table_row table_content" *ngFor="let book of bookService.books">
+        <p>{{book.Title}}</p>
+        <p>{{book.Author}}</p>
+        <p>{{book.Description}}</p>
+        <div class="action_buttons">
+          <button class="btn btn-success" (click)="openEditDialog(book)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteElement(book)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
