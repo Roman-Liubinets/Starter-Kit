@@ -1,29 +1,21 @@
 <div class="books_container">
-  <!-- <div class="book">
-    <div class="book_image">
-      <img src="../../../../../../../1.jpeg" alt="">
+  <div class="table">
+    <div class="table_row table_header">
+      <p>Title</p>
+      <p>Author</p>
+      <p>Description</p>
+      <p>Actions</p>
     </div>
-    <div class="book_content">
-      <h3>Title</h3>
-      <p>Content</p>
-    </div>
-  </div> -->
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Description</th>
-      <th class="th_actions">Actions</th>
-    </tr>
-    <tr *ngFor="let book of bookService.books">
-      <td>{{book.Title}}</td>
-      <td>{{book.Author}}</td>
-      <td class="description">{{book.Description}}</td>
-      <td class="td_buttons">
+    <div class="animation_row" *ngIf="bookService.books">
+      <div class="table_row table_content" *ngFor="let book of bookService.books" [@addAnimation]>
+        <p>{{book.Title}}</p>
+        <p>{{book.Author}}</p>
+        <p>{{book.Description}}</p>
         <div class="action_buttons">
           <button class="btn btn-success" (click)="openEditDialog(book)">Edit</button>
-          <button class="btn btn-danger" (click)="openRemoveDialog(book)">Delete</button></div>
-      </td>
-    </tr>
-  </table>
+          <button class="btn btn-danger" (click)="deleteElement(book)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

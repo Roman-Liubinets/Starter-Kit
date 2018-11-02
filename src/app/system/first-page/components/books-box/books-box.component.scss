@@ -19,17 +19,17 @@ table {
 
 }
 
-.action_buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+// .action_buttons {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 200px;
+//   margin-left: auto;
+//   margin-right: auto;
 
-  button {
-    width: 45%;
-  }
-}
+//   button {
+//     width: 45%;
+//   }
+// }
 
 .description {
   width: 25%;
@@ -45,4 +45,58 @@ tr:nth-child(2n) {
 
 .th_actions {
   text-align: center;
+}
+
+.table {
+
+  .table_row {
+    p {
+      display: inline-block;
+      width: 255px;
+      text-align: center;
+    }
+  }
+
+  .table_header {
+    background-color: #27ae60;
+    height: 60px;
+
+    p {
+      margin-top: 20px;
+      color: #e9e9e9;
+      font-weight: 600;
+    }
+  }
+
+  .table_content {
+    height: 60px;
+
+    p {
+      margin-top: 20px;
+    }
+
+    .action_buttons {
+      display: inline-block;
+      width: 200px;
+      vertical-align: -webkit-baseline-middle;
+      margin-left: 30px;
+
+      button {
+        width: 45%;
+      }
+
+      button:first-child {
+        float: left;
+      }
+
+      button:last-child {
+        float: right;
+      }
+    }
+
+  }
+
+  .table_content:nth-child(2n) {
+    background-color: #e9e9e9;
+  }
 }
