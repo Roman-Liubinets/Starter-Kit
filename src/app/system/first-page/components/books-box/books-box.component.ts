@@ -11,7 +11,8 @@ import {
   state,
   style,
   transition,
-  animate
+  animate,
+  group
 } from "@angular/animations";
 
 @Component({
@@ -19,18 +20,26 @@ import {
   templateUrl: "./books-box.component.html",
   styleUrls: ["./books-box.component.scss"],
   animations: [
-    trigger("deleteAnimation", [
-      // transition("void => *", [
-      //   style({ transform: "translateX(-100%)" }),
-      //   animate("1s")
-      // ]),
-      transition("* => void", [
-        animate(
-          "0.4s",
-          style({
-            transform: "translateX(100%)"
-          })
-        )
+    trigger("addAnimation", [
+      transition(":enter", [
+        style({ transform: "translateX(-100%" }),
+        animate(350)
+      ]),
+      transition(":leave", [
+        group([
+          animate(
+            "0.2s ease",
+            style({
+              transform: "translateX(100%)"
+            })
+          ),
+          animate(
+            "0.5s 0.2s ease",
+            style({
+              opacity: 0
+            })
+          )
+        ])
       ])
     ])
   ]
@@ -38,36 +47,17 @@ import {
 export class BooksBoxComponent implements OnInit {
   constructor(public bookService: BooksService, public dialog: MatDialog) {}
 
-  showElement: boolean = true;
-  state = "*";
-
   getBooks() {
     return this.bookService.getBooks().subscribe((books: any) => {
       this.bookService.books = books;
-      console.log(
-        "TCL: BooksBoxComponent -> getBooks -> this.bookService.books",
-        this.bookService.books
-      );
     });
   }
-
-  // openRemoveDialog(book) {
-  //   const dialogRef = this.dialog.open(DeleteBooksComponent, {
-  //     data: book
-  //   });
-  //   dialogRef.afterClosed().subscribe((result: any) => {
-  //     this.bookService.getBooks().subscribe((books: any) => {
-  //       this.bookService.books = books;
-  //     });
-  //   });
-  // }
 
   openEditDialog(book) {
     const dialogRef = this.dialog.open(EditeBookComponent, {
       data: book
     });
     dialogRef.afterClosed().subscribe((result: any) => {
-      // this.showElement = this.showElement ? false : true;
       this.bookService.getBooks().subscribe((books: any) => {
         this.bookService.books = books;
       });
@@ -75,15 +65,13 @@ export class BooksBoxComponent implements OnInit {
   }
 
   deleteElement(book) {
-    this.showElement = this.showElement ? false : true;
-    window.setTimeout(() => {
-      this.bookService.deleteBook(book._id).subscribe(() => {
-        this.bookService.getBooks().subscribe((books: any) => {
-          this.bookService.books = books;
-        });
+    // window.setTimeout(() => {
+    this.bookService.deleteBook(book._id).subscribe(() => {
+      this.bookService.getBooks().subscribe((books: any) => {
+        this.bookService.books = books;
       });
-    }, 700);
-    console.log("this.showElement", this.showElement);
+    });
+    // }, 700);
   }
 
   ngOnInit() {

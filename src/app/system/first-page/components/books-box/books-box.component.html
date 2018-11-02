@@ -1,37 +1,4 @@
 <div class="books_container">
-  <!-- <div class="book">
-    <div class="book_image">
-      <img src="../../../../../../../1.jpeg" alt="">
-    </div>
-    <div class="book_content">
-      <h3>Title</h3>
-      <p>Content</p>
-    </div>
-  </div> -->
-  <!-- <button (click)="deleteElement()">test</button> -->
-  <!-- <table>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Description</th>
-      <th class="th_actions">Actions</th>
-    </tr>
-    <tr *ngFor="let book of bookService.books">
-      <div *ngIf="showElement" [@deleteAnimation]>
-        <td>{{book.Title}}</td>
-        <td>{{book.Author}}</td>
-        <td class="description">{{book.Description}}</td>
-        <td class="td_buttons">
-          <div class="action_buttons">
-            <button class="btn btn-success" (click)="openEditDialog(book)">Edit</button>
-            <button class="btn btn-danger" (click)="openRemoveDialog(book)">Delete</button>
-            <button class="btn btn-danger" (click)="deleteElement(book)">Delete</button>
-          </div>
-        </td>
-      </div>
-    </tr> -->
-  <!-- </table> -->
-  <!-- <button (click)="deleteElement()">test</button> -->
   <div class="table">
     <div class="table_row table_header">
       <p>Title</p>
@@ -39,8 +6,8 @@
       <p>Description</p>
       <p>Actions</p>
     </div>
-    <div class="animation_row" *ngIf="showElement" [@deleteAnimation]>
-      <div class="table_row table_content" *ngFor="let book of bookService.books">
+    <div class="animation_row" *ngIf="bookService.books">
+      <div class="table_row table_content" *ngFor="let book of bookService.books" [@addAnimation]>
         <p>{{book.Title}}</p>
         <p>{{book.Author}}</p>
         <p>{{book.Description}}</p>
